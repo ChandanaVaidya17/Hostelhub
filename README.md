@@ -16,7 +16,7 @@ An Android application designed for efficient management of hostel utilities and
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/yourusername/hostel-management-app.git`
+1. Clone the repository: `https://github.com/ChandanaVaidya17/Hostelhub.git`
 2. Open the project in Android Studio.
 3. Configure Firebase by following the setup instructions in `firebase_setup.md`.
 4. Build and run the app on an Android device or emulator.

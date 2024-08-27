@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">MyHostel</string>
+    <string name="about_us"><b>Hostel Management App</b>\n\n
+        <i>Developed by:\nChandana (4MW20CS018)</i>\n<i>Dhrishya (4MW20CS026)</i>\n\n<i>Submitted to:\nMs.SAHANA Karanth, Senior Assistant Professor, CSE, SMVITM</i>\n
+        \nAn Android application for hostel management offers several advantages for both hostel owners and residents.\n\n<b>Here are some specific benefits:</b>\n
+        \n<b>Simplified Management:</b> \n\n A hostel management Android app streamlines and automates various management tasks.
+        This simplifies the overall management process, saves time, and reduces the likelihood of errors.
+        \n\n<b>Real-Time Notifications:</b> The Android app can send real-time notifications to both hostel management and residents.
+        Important updates, such as booking confirmations, check-in/check-out reminders, maintenance schedules, or emergency alerts, can be instantly communicated through the app, ensuring timely information dissemination. \n\n
+        <b>Seamless Communication:</b> The app facilitates smooth communication between hostel management and residents. Residents can use the app to submit requests, report issues, or seek assistance.
+        Hostel management can efficiently address these inquiries and communicate updates or resolutions directly through the app.\n\n
+        <b>Resource Management:</b> The app can help manage hostel resources effectively. Hostel staff can track inventory, manage supplies,
+        and monitor usage through the app. This ensures that essential items like linens, toiletries, or kitchen supplies are adequately stocked and minimizes wastage. \n\n
+        <b>Analytics and Reporting:</b> The app can generate comprehensive reports and analytics regarding various aspects of hostel operations, including occupancy rates, revenue, guest feedback,
+        and maintenance requests. These insights enable hostel owners to make data-driven decisions, identify trends, and improve overall performance.\n\n
+        <b>Mobility and Accessibility:</b> By being accessible on Android devices, the app offers mobility and convenience to both hostel management and residents. They can access the apps features and
+        functionalities from anywhere, anytime, facilitating efficient management and improved resident experience.
+     </string>
+
+    <!-- Checkout activity -->
+    <string name="title_activity_checkout">CheckoutActivity</string>
+    <string name="checkout_item_description">Description</string>
+    <string name="googlepay_status_unavailable" translatable="false">Unfortunately, Google Pay is
+        not available on this phone.
+    </string>
+    <string name="payments_show_name" translatable="false">Successfully received payment data for
+        %s!
+    </string>
+</resources>

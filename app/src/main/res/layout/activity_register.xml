@@ -1,0 +1,102 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_wall">
+
+    <RelativeLayout
+        android:layout_width="316dp"
+        android:layout_height="500dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/rounded_corner_background"
+        android:elevation="8dp"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="279dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:text="Welcome to Registration Page"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView4"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="43dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Name"
+            android:minHeight="48dp"
+            android:textColor="#000000"
+            android:textColorHint="#808080" />
+
+        <EditText
+            android:id="@+id/eml"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Enter email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:textColor="#000000"
+            android:textColorHint="#808080" />
+
+        <EditText
+            android:id="@+id/ph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/eml"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Enter phone Number"
+            android:digits="0123456789"
+            android:maxLength="10"
+            android:inputType="phone"
+            android:minHeight="48dp"
+            android:textColor="#000000"
+            android:textColorHint="#808080" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ph"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Enter Password"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColor="#040000"
+            android:textColorHint="#808080" />
+
+        <Button
+            android:id="@+id/rst"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="19dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#2A75E5"
+            android:text="Register"
+            android:textColor="#F6F5F5"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+</RelativeLayout>

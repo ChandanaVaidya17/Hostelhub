@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/abstractbackground"
+    tools:context=".Studentpage">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="617dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="78dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/rounded_corner_background"
+        android:padding="14dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="574dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="13dp"
+            android:background="@drawable/rounded_corner_background">
+
+
+            <!--        <TextView-->
+            <!--            android:id="@+id/msg"-->
+            <!--            android:layout_width="296dp"-->
+            <!--            android:layout_height="44dp"-->
+            <!--            android:layout_alignParentEnd="true"-->
+            <!--            android:layout_alignParentBottom="true"-->
+            <!--            android:layout_marginEnd="91dp"-->
+            <!--            android:layout_marginBottom="532dp"-->
+            <!--            android:text="Message from admin: " />-->
+
+
+            <!--            <Switch-->
+            <!--                android:id="@+id/outstation"-->
+            <!--                android:layout_width="140dp"-->
+            <!--                android:layout_height="48dp"-->
+            <!--                android:layout_alignParentEnd="true"-->
+            <!--                android:layout_alignParentBottom="true"-->
+            <!--                android:layout_marginEnd="177dp"-->
+            <!--                android:layout_marginBottom="179dp"-->
+            <!--                android:text="outofstation" />-->
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="190dp"
+                android:layout_height="55dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginBottom="469dp"
+                android:gravity="center"
+                android:text="Student page"
+                android:textSize="23sp"
+                tools:layout_editor_absoluteX="175dp"
+                tools:layout_editor_absoluteY="160dp" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="247dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="82dp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="419dp"
+                android:text="Name:" />
+
+            <TextView
+                android:id="@+id/nts"
+                android:layout_width="384dp"
+                android:layout_height="29dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="83dp"
+                android:layout_marginBottom="388dp"
+                android:textColor="@color/black"
+                android:hint="Message from admin: " />
+
+            <RadioButton
+                android:id="@+id/breakfast"
+                android:layout_width="352dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="28dp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="317dp"
+                android:text="Breakfast" />
+
+            <RadioButton
+                android:id="@+id/lunch"
+                android:layout_width="361dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="17dp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="271dp"
+                android:text="Lunch" />
+
+            <RadioButton
+                android:id="@+id/dinner"
+                android:layout_width="379dp"
+                android:layout_height="48dp"
+                android:textColor="@color/black"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="222dp"
+                android:text="Dinner" />
+
+            <EditText
+                android:id="@+id/sm"
+                android:layout_width="187dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="124dp"
+                android:layout_marginBottom="137dp"
+                android:ems="10"
+                android:textColorHint="@color/black"
+                android:hint="Leave a message for admin"
+                android:inputType="text"
+                android:minHeight="48dp" />
+
+            <Button
+                android:id="@+id/post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="130dp"
+                android:backgroundTint="#2A75E5"
+                android:text="send" />
+
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#2A75E5"
+                android:layout_marginBottom="39dp"
+                android:text="logout" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

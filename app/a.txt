@@ -1,0 +1,334 @@
+package com.example.myhostel;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+public class Studentpage extends AppCompatActivity {
+    Button btn, Post;
+    DatabaseReference databaseReference, dbref;
+    TextView Nmsg, notice, stdMsg, uname;
+    FirebaseAuth mAuth;
+
+    RadioButton brkfst, lnch, dnr;
+    Switch otstn;
+    int bf, ln, dn, ostn;
+
+    private Handler handler;
+    private Runnable fetchRunnable;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_studentpage);
+
+        btn = findViewById(R.id.logout);
+        Nmsg = findViewById(R.id.msg);
+        notice = findViewById(R.id.nts);
+        Post = findViewById(R.id.post);
+        stdMsg = findViewById(R.id.sm);
+        uname = findViewById(R.id.username);
+        brkfst = findViewById(R.id.breakfast);
+        lnch = findViewById(R.id.lunch);
+        dnr = findViewById(R.id.dinner);
+        otstn = findViewById(R.id.outstation);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+
+        // Fetch notice every 5 seconds
+        handler = new Handler();
+        fetchRunnable = new Runnable() {
+            @Override
+            public void run() {
+                fetchNotice();
+                handler.postDelayed(this, 5000); // Fetch data every 5 seconds
+            }
+        };
+        handler.postDelayed(fetchRunnable, 5000);
+
+        btn.setOnClickListener(view -> {
+            mAuth.signOut();
+            startActivity(new Intent(Studentpage.this, MainActivity.class));
+        });
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Request");
+
+        Post.setOnClickListener(view -> {
+            String message = stdMsg.getText().toString();
+            databaseReference.setValue(message);
+            Toast.makeText(getApplicationContext(), "Successfully posted", Toast.LENGTH_LONG).show();
+        });
+
+        brkfst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (brkfst.isChecked()) {
+                    int increment = 1;
+                    updateValue("Breakfast", increment);
+                } else {
+                    int decrement = -1;
+                    updateValue("Breakfast", decrement);
+                }
+            }
+        });
+
+        lnch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (lnch.isChecked()) {
+                    int increment = 1;
+                    updateValue("Lunch", increment);
+                } else {
+                    int decrement = -1;
+                    updateValue("Lunch", decrement);
+                }
+            }
+        });
+
+        dnr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (dnr.isChecked()) {
+                    int increment = 1;
+                    updateValue("Dinner", increment);
+                } else {
+                    int decrement = -1;
+                    updateValue("Dinner", decrement);
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Remove the fetchRunnable when the activity is destroyed
+        handler.removeCallbacks(fetchRunnable);
+    }
+
+    private void fetchNotice() {
+        databaseReference.child("Notice").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try {
+                    String stringToConvert = String.valueOf(snapshot.getValue());
+                    notice.setText(stringToConvert);
+                } catch (Exception e) {
+                    Log.i("Error excpt", "onDataNotice");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("Error", "Database operation canceled: " + error.getMessage());
+            }
+        });package com.example.myhostel;
+
+           import androidx.annotation.NonNull;
+           import androidx.appcompat.app.AppCompatActivity;
+
+           import android.content.Intent;
+           import android.os.Bundle;
+           import android.os.Handler;
+           import android.util.Log;
+           import android.view.View;
+           import android.widget.Button;
+           import android.widget.RadioButton;
+           import android.widget.Switch;
+           import android.widget.TextView;
+           import android.widget.Toast;
+
+           import com.google.firebase.auth.FirebaseAuth;
+           import com.google.firebase.database.DataSnapshot;
+           import com.google.firebase.database.DatabaseError;
+           import com.google.firebase.database.DatabaseReference;
+           import com.google.firebase.database.FirebaseDatabase;
+           import com.google.firebase.database.ValueEventListener;
+
+           public class Studentpage extends AppCompatActivity {
+               Button btn, Post;
+               DatabaseReference databaseReference, dbref;
+               TextView Nmsg, notice, stdMsg, uname;
+               FirebaseAuth mAuth;
+
+               RadioButton brkfst, lnch, dnr;
+               Switch otstn;
+               int bf, ln, dn, ostn;
+
+               private Handler handler;
+               private Runnable fetchRunnable;
+
+               @Override
+               protected void onCreate(Bundle savedInstanceState) {
+                   super.onCreate(savedInstanceState);
+                   setContentView(R.layout.activity_studentpage);
+
+                   btn = findViewById(R.id.logout);
+                   Nmsg = findViewById(R.id.msg);
+                   notice = findViewById(R.id.nts);
+                   Post = findViewById(R.id.post);
+                   stdMsg = findViewById(R.id.sm);
+                   uname = findViewById(R.id.username);
+                   brkfst = findViewById(R.id.breakfast);
+                   lnch = findViewById(R.id.lunch);
+                   dnr = findViewById(R.id.dinner);
+                   otstn = findViewById(R.id.outstation);
+
+                   databaseReference = FirebaseDatabase.getInstance().getReference();
+                   mAuth = FirebaseAuth.getInstance();
+
+                   // Fetch notice every 5 seconds
+                   handler = new Handler();
+                   fetchRunnable = new Runnable() {
+                       @Override
+                       public void run() {
+                           fetchNotice();
+                           handler.postDelayed(this, 5000); // Fetch data every 5 seconds
+                       }
+                   };
+                   handler.postDelayed(fetchRunnable, 5000);
+
+                   btn.setOnClickListener(view -> {
+                       mAuth.signOut();
+                       startActivity(new Intent(Studentpage.this, MainActivity.class));
+                   });
+
+                   databaseReference = FirebaseDatabase.getInstance().getReference("Request");
+
+                   Post.setOnClickListener(view -> {
+                       String message = stdMsg.getText().toString();
+                       databaseReference.setValue(message);
+                       Toast.makeText(getApplicationContext(), "Successfully posted", Toast.LENGTH_LONG).show();
+                   });
+
+                   brkfst.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View v) {
+                           if (brkfst.isChecked()) {
+                               int increment = 1;
+                               updateValue("Breakfast", increment);
+                           } else {
+                               int decrement = -1;
+                               updateValue("Breakfast", decrement);
+                           }
+                       }
+                   });
+
+                   lnch.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View v) {
+                           if (lnch.isChecked()) {
+                               int increment = 1;
+                               updateValue("Lunch", increment);
+                           } else {
+                               int decrement = -1;
+                               updateValue("Lunch", decrement);
+                           }
+                       }
+                   });
+
+                   dnr.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View v) {
+                           if (dnr.isChecked()) {
+                               int increment = 1;
+                               updateValue("Dinner", increment);
+                           } else {
+                               int decrement = -1;
+                               updateValue("Dinner", decrement);
+                           }
+                       }
+                   });
+               }
+
+               @Override
+               protected void onDestroy() {
+                   super.onDestroy();
+                   // Remove the fetchRunnable when the activity is destroyed
+                   handler.removeCallbacks(fetchRunnable);
+               }
+
+               private void fetchNotice() {
+                   databaseReference.child("Notice").addListenerForSingleValueEvent(new ValueEventListener() {
+                       @Override
+                       public void onDataChange(@NonNull DataSnapshot snapshot) {
+                           try {
+                               String stringToConvert = String.valueOf(snapshot.getValue());
+                               notice.setText(stringToConvert);
+                           } catch (Exception e) {
+                               Log.i("Error excpt", "onDataNotice");
+                           }
+                       }
+
+                       @Override
+                       public void onCancelled(@NonNull DatabaseError error) {
+                           Log.e("Error", "Database operation canceled: " + error.getMessage());
+                       }
+                   });
+               }
+
+               private void updateValue(String key, int increment) {
+                   DatabaseReference valueRef = databaseReference.child(key);
+                   valueRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                       @Override
+                       public void onDataChange(@NonNull DataSnapshot snapshot) {
+                           try {
+                               int currentValue = snapshot.getValue(Integer.class); // Assumes the value in the database is an integer
+
+                               int updatedValue = currentValue + increment;
+                               valueRef.setValue(updatedValue);
+                           } catch (Exception e) {
+                               Log.e("Error", "Failed to update value in the database: " + e.getMessage());
+                           }
+                       }
+
+                       @Override
+                       public void onCancelled(@NonNull DatabaseError error) {
+                           Log.e("Error", "Database operation canceled: " + error.getMessage());
+                       }
+                   });
+               }
+           }
+
+    }
+
+    private void updateValue(String key, int increment) {
+        DatabaseReference valueRef = databaseReference.child(key);
+        valueRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try {
+                    int currentValue = snapshot.getValue(Integer.class); // Assumes the value in the database is an integer
+
+                    int updatedValue = currentValue + increment;
+                    valueRef.setValue(updatedValue);
+                } catch (Exception e) {
+                    Log.e("Error", "Failed to update value in the database: " + e.getMessage());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("Error", "Database operation canceled: " + error.getMessage());
+            }
+        });
+    }
+}
